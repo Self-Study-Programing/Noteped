@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import NoteShow from "../components/NoteShow";
 import NoteWrite from "../components/NoteWrite";
 
@@ -11,7 +12,7 @@ const Note = ({ note }) => {
           <NoteShow key={v.id} note={v} />
         ))}
       </div>
-      {/* <NoteWrite /> */}
+      <NoteWrite />
     </>
   );
 };
@@ -19,9 +20,12 @@ const Note = ({ note }) => {
 const mapStateToProps = (state) => {
   return {
     note: state.note,
+    current: state.current,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {};
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Note);
